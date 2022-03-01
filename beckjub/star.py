@@ -1,19 +1,36 @@
 '''
 문제
-세 개의 자연수 A, B, C가 주어질 때 A × B × C를 계산한 결과에 0부터 9까지 각각의 숫자가 몇 번씩 쓰였는지를 구하는 프로그램을 작성하시오.
-
-예를 들어 A = 150, B = 266, C = 427 이라면 A × B × C = 150 × 266 × 427 = 17037300 이 되고, 계산한 결과 17037300 에는 0이 3번, 1이 1번, 3이 2번, 7이 2번 쓰였다.
+대학생 새내기들의 90%는 자신이 반에서 평균은 넘는다고 생각한다. 당신은 그들에게 슬픈 진실을 알려줘야 한다.
 
 입력
-첫째 줄에 A, 둘째 줄에 B, 셋째 줄에 C가 주어진다. A, B, C는 모두 100보다 크거나 같고, 1,000보다 작은 자연수이다.
+첫째 줄에는 테스트 케이스의 개수 C가 주어진다.
+
+둘째 줄부터 각 테스트 케이스마다 학생의 수 N(1 ≤ N ≤ 1000, N은 정수)이 첫 수로 주어지고, 이어서 N명의 점수가 주어진다. 
+점수는 0보다 크거나 같고, 100보다 작거나 같은 정수이다.
 
 출력
-첫째 줄에는 A × B × C의 결과에 0 이 몇 번 쓰였는지 출력한다. 마찬가지로 둘째 줄부터 열 번째 줄까지 A × B × C의 결과에 1부터 9까지의 숫자가 각각 몇 번 쓰였는지 차례로 한 줄에 하나씩 출력한다.
+각 케이스마다 한 줄씩 평균을 넘는 학생들의 비율을 반올림하여 소수점 셋째 자리까지 출력한다.
 '''
-a = int(input())
-b = int(input())
-c = int(input())
+import sys
 
-result = list(str(a * b * c))
-for i in range(10):
-    print(result.count(str(i)))
+c = int(sys.stdin.readline())
+
+for i in range(c):
+    prb = list(map(int, sys.stdin.readline().split()))
+    prb = list(map(int, input().split()))
+    result = sum(prb[1:]) / prb[0]
+    
+    student = 0
+    for j in prb[1:]:
+        if j > result:
+            student += 1
+    
+    last = (student/prb[0])*100
+
+    #print('%.3f' %result+'%')
+    print('%.3f' %last+'%')
+    #print('%.6f' % n)
+    
+        
+        
+
