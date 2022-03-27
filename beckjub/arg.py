@@ -1,12 +1,8 @@
-import sys
+"""가로,세로 길이가 정수이고 넓이가 area인 직사각형에서 변의 길이 나열하기"""
 
-T = int(sys.stdin.readline())
+area = int(input('직사각형의 넓이를 입력하세요.: '))
 
-for i in range(1,T+1):
-    A,B = map(int, sys.stdin.readline().split())
-
-    print(f"Case #{i}: {A} + {B} =", A+B)
-
-    print("Case #%d:" %(i), A+B)
-    print("Case #{}:".format(i), A+B)
-    print(f"Case #{i}:", A+B)
+for i in range(1, area + 1):
+    if i * i > area: break
+    if area % i: continue
+    print(f'{i} x {area // i}')
