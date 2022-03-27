@@ -1,8 +1,8 @@
-"""가로,세로 길이가 정수이고 넓이가 area인 직사각형에서 변의 길이 나열하기"""
+""" 구구단 곱셈표 출력하기 """
 
-area = int(input('직사각형의 넓이를 입력하세요.: '))
-
-for i in range(1, area + 1):
-    if i * i > area: break
-    if area % i: continue
-    print(f'{i} x {area // i}')
+print('-' * 27)
+for i in range(1, 10):
+    for j in range(1, 10):
+        print(f'{i * j:3}', end='')
+    print()
+print('-' * 27)
